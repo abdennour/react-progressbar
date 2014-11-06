@@ -37,8 +37,9 @@
 
         var ProgressBarMenu = React.createClass({
             handleChange: function() {
-                this.props.whenClick(
-                    this.refs.filterTextInput.getDOMNode().value
+                this.props.whenChange(
+                    this.refs.filterTextInput.getDOMNode().value,
+                        this.refs.filterColorInput.getDOMNode().value
                 );
             },
             render: function() {
@@ -46,10 +47,15 @@
                     <p>
                     <form>
                         <input
-                            type="text"
-                            placeholder="Search..."
+                            type="number"
+                            placeholder="number..."
                             value={this.props.filterText}
                             ref="filterTextInput"
+                            onChange={this.handleChange}
+                        />
+                        <input type="color"
+                            value={this.props.filterColor}
+                            ref="filterColorInput"
                             onChange={this.handleChange}
                         />
                     </form>
@@ -69,18 +75,21 @@
 
         var ProgressBarContent = React.createClass({
             getInitialState: function() {
-                return {completed: this.props.completed};
+                return {
+                    completed: this.props.completed,
+                    color: this.props.color};
             },
-            handleClick: function (completed) {
+            handleChange: function (completed, color) {
                 this.setState({
-                    completed: completed
+                    completed: completed,
+                    color: color
                 });
             },
             render: function () {
                 return (
                     <div>
-                        <ProgressBarMenu whenClick={this.handleClick} buttons={this.props.buttons}></ProgressBarMenu>
-                        <ProgressTheBar completed={this.state.completed} color={this.props.color}></ProgressTheBar>
+                        <ProgressBarMenu whenChange={this.handleChange} buttons={this.props.buttons} filterText={this.state.completed} filterColor={this.state.color}></ProgressBarMenu>
+                        <ProgressTheBar completed={this.state.completed} color={this.state.color}></ProgressTheBar>
                     </div>
                 )
             }
@@ -88,7 +97,7 @@
 
 
         React.render(
-            <ProgressBarContent completed="40" buttons="10,40,50,100" color="#eee"></ProgressBarContent>,
+            <ProgressBarContent completed="98" color="#FF4136"></ProgressBarContent>,
             document.getElementById('bar')
         );
     </script>
