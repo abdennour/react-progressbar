@@ -5,6 +5,8 @@ Basic progress bar in React.js.
 
 ![Screenshot of progress bar](https://raw.githubusercontent.com/paramaggarwal/react-progressbar/master/screenshot.png)
 
+[DEMO](paramaggarwal.github.io/react-progressbar/)
+
 Usage
 =====
 

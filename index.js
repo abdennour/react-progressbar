@@ -15,7 +15,7 @@ var component = React.createClass({
 
     var progressStyle = {
       backgroundColor: this.props.color || '#0BD318',
-      width: (this.props.completed || 0) + '%',
+      width: ((this.props.completed.match(/\d+/)) ? this.props.completed : 0) + '%',
       transition: "width 200ms",
       height: '10px'
     };
