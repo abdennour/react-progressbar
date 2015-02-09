@@ -1,6 +1,6 @@
 {
   "name": "react-progressbar",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "description": "Basic progress bar in React",
   "main": "index.js",
   "keywords": [
