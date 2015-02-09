@@ -9,20 +9,20 @@ var component = React.createClass({
 
   render: function() {
 
-    var containerStyle = {
-      height: '10px'
-    };
+    var completed = +this.props.completed;
+    if (completed < 0) {completed = 0};
+    if (completed > 100) {completed = 100};
 
-    var progressStyle = {
+    var style = {
       backgroundColor: this.props.color || '#0BD318',
-      width: ((this.props.completed.match(/\d+/)) ? this.props.completed : 0) + '%',
+      width: completed + '%',
       transition: "width 200ms",
-      height: '10px'
+      height: 10
     };
 
     return (
-      <div className="progressbar-container" style={containerStyle}>
-        <div className="progressbar-progress" style={progressStyle}>
+      <div className="progressbar-container" >
+        <div className="progressbar-progress" style={style}>
         </div>
       </div>
     );
