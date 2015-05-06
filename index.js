@@ -22,8 +22,7 @@ var component = React.createClass({
 
     return (
       <div className="progressbar-container" >
-        <div className="progressbar-progress" style={style}>
-        </div>
+        <div className="progressbar-progress" style={style}>{this.props.children}</div>
       </div>
     );
   }
