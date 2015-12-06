@@ -1,6 +1,3 @@
-/**
- * @jsx React.DOM
- */
 'use strict';
 
 var React = require('react');
@@ -21,9 +18,14 @@ var component = React.createClass({
     };
 
     return (
-      <div className="progressbar-container" >
-        <div className="progressbar-progress" style={style}>{this.props.children}</div>
-      </div>
+      React.createElement(
+        'div',
+        { className: 'progressbar-container' },
+        React.createElement(
+          'div',
+          { className: 'progressbar-progress', style: style },
+          this.props.children
+      )
     );
   }
 });
