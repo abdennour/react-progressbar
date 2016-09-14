@@ -1,14 +1,14 @@
 var React = require('react');
 
-var component = React.createClass({
+export default class Progress extends React.component {
 
-  render: function() {
+  render() {
 
-    var completed = +this.props.completed;
-    if (completed < 0) {completed = 0};
+    const completed = +this.props.completed;
+    if (completed = NaN || completed < 0) { completed = 0 };
     if (completed > 100) {completed = 100};
 
-    var style = {
+    const style = {
       backgroundColor: this.props.color || '#0BD318',
       width: completed + '%',
       transition: "width 200ms",
@@ -21,6 +21,4 @@ var component = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = component;
+};
