@@ -42,7 +42,7 @@
   "homepage": "https://github.com/paramaggarwal/react-progressbar",
   "author": "Param Aggarwal",
   "license": "MIT",
-  "dependencies": {
-    "react": "^0.14.3"
+  "peerDependencies": {
+    "react": "^15.0.1"
   }
 }
