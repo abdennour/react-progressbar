@@ -4,8 +4,8 @@ export default class Progress extends React.component {
 
   render() {
 
-    const completed = +this.props.completed;
-    if (completed = NaN || completed < 0) { completed = 0 };
+    let completed = +this.props.completed;
+    if (completed === NaN || completed < 0) { completed = 0 };
     if (completed > 100) {completed = 100};
 
     const style = {
