@@ -4,7 +4,7 @@
   "description": "Basic progress bar in React",
   "main": "lib/index.js",
   "scripts": {
-    "build": "babel ./src --out-dir ./lib"
+    "prepublish": "babel ./src --out-dir ./lib"
   },
   "devDependencies": {
     "babel-cli": "^6.2.0",
