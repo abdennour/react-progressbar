@@ -1,6 +1,6 @@
 var React = require('react');
 
-export default class Progress extends React.component {
+export default class Progress extends React.Component {
 
   render() {
 
