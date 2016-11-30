@@ -1,5 +1,9 @@
-react-progressbar
+# react-progressbar
 =================
+
+[![Build Status](https://travis-ci.org/paramaggarwal/react-progressbar.svg?branch=master)](https://travis-ci.org/paramaggarwal/react-progressbar)
+[![Coverage Status](https://coveralls.io/repos/github/paramaggarwal/react-progressbar/badge.svg?branch=master)](https://coveralls.io/github/paramaggarwal/react-progressbar?branch=master)
+
 
 Basic progress bar in React.js.
 
