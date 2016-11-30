@@ -14,6 +14,7 @@ Demo: http://paramaggarwal.github.io/react-progressbar/
 Usage
 =====
 
+
 Simply `require('react-progressbar')` and pass in `completed` property as a number between 0 and 100.
 
 You may additionally pass in a CSS color string for the `color` property.
