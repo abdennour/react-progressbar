@@ -19,24 +19,18 @@ const defaultProps = {
 
 class Progress extends React.Component {
 
-  preventOutOfRange (completed) {
-    if (completed < 0) return 0;
-    if (completed > 100) return 100;
-    return completed;
-  }
-
   render () {
-    const completed = this.preventOutOfRange(this.props.completed);
+    const {color, completed, height, children, ...rest} = this.props;
     const style = {
-      backgroundColor: this.props.color,
+      backgroundColor: color,
       width: completed + '%',
       transition: "width 200ms",
-      height: this.props.height
+      height: height
     };
 
     return (
       <div className="progressbar-container">
-        <div className="progressbar-progress" style={style}>{this.props.children}</div>
+        <div className="progressbar-progress" style={style}>{children}</div>
       </div>
     );
   }
