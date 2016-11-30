@@ -1,4 +1,15 @@
-var React = require('react');
+import React from 'react';
+
+const PropTypes = {
+  completed: React.PropTypes.oneOf(Array.from({
+    length: 101
+  }, (v, k) => k )),
+  color: React.PropTypes.string,
+  height: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number
+  ])
+};
 
 const defaultProps = {
   completed: 0,
@@ -6,26 +17,16 @@ const defaultProps = {
   height: 10
 };
 
-const PropTypes = {
-   completed: React.PropTypes.oneOf(...Array.from({length:100}, (v, k)=> k+1)) ,
-   color: React.PropTypes.string,
-   height: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
-  ])
-}
 class Progress extends React.Component {
 
-  preventOutOfRange(completed) {
-     if (completed < 0) return 0 ;
-     if (completed > 100) return 100;
-     return  completed;
+  preventOutOfRange (completed) {
+    if (completed < 0) return 0;
+    if (completed > 100) return 100;
+    return completed;
   }
-  render() {
 
-    let completed = +this.props.completed;
-    completed = this.preventOutOfRange(completed);
-
+  render () {
+    const completed = this.preventOutOfRange(this.props.completed);
     const style = {
       backgroundColor: this.props.color,
       width: completed + '%',
@@ -42,6 +43,6 @@ class Progress extends React.Component {
 };
 
 Progress.propTypes = PropTypes;
-Progress.defaultProps= defaultProps;
+Progress.defaultProps = defaultProps;
 
-export default Progress ;
+export default Progress;
