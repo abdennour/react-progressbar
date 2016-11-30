@@ -1,7 +1,7 @@
 var React = require('react');
 
 const defaultProps = {
-  completed: 0, 
+  completed: 0,
   color: '#0BD318',
   height: 10
 };
@@ -15,17 +15,17 @@ const PropTypes = {
   ])
 }
 class Progress extends React.Component {
-  
+
   preventOutOfRange(completed) {
      if (completed < 0) return 0 ;
-     if (completed > 100) return 100; 
+     if (completed > 100) return 100;
      return  completed;
   }
   render() {
 
     let completed = +this.props.completed;
     completed = this.preventOutOfRange(completed);
-    
+
     const style = {
       backgroundColor: this.props.color,
       width: completed + '%',
@@ -41,7 +41,7 @@ class Progress extends React.Component {
   }
 };
 
-Progress.PropTypes = PropTypes;
+Progress.propTypes = PropTypes;
 Progress.defaultProps= defaultProps;
 
 export default Progress ;
