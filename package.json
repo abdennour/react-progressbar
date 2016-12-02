@@ -1,6 +1,6 @@
 {
   "name": "react-progressbar",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Basic progress bar in React",
   "main": "lib/index.js",
   "scripts": {
@@ -55,12 +55,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:paramaggarwal/react-progressbar.git"
+    "url": "git@github.com:abdennour/react-progressbar.git"
   },
   "bugs": {
-    "url": "https://github.com/paramaggarwal/react-progressbar/issues"
+    "url": "https://github.com/abdennour/react-progressbar/issues"
   },
-  "homepage": "https://github.com/paramaggarwal/react-progressbar",
+  "homepage": "https://github.com/abdennour/react-progressbar",
   "author": "Param Aggarwal",
   "license": "MIT",
   "peerDependencies": {
