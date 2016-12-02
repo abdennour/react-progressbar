@@ -1,15 +1,15 @@
 # react-progressbar
 =================
 
-[![Build Status](https://travis-ci.org/paramaggarwal/react-progressbar.svg?branch=master)](https://travis-ci.org/paramaggarwal/react-progressbar)
-[![Coverage Status](https://coveralls.io/repos/github/paramaggarwal/react-progressbar/badge.svg?branch=master)](https://coveralls.io/github/paramaggarwal/react-progressbar?branch=master)
+[![Build Status](https://travis-ci.org/abdennour/react-progressbar.svg?branch=master)](https://travis-ci.org/abdennour/react-progressbar)
+[![Coverage Status](https://coveralls.io/repos/github/abdennour/react-progressbar/badge.svg?branch=master)](https://coveralls.io/github/abdennour/react-progressbar?branch=master)
 
 
 Basic progress bar in React.js.
 
-![Screenshot of progress bar](https://raw.githubusercontent.com/paramaggarwal/react-progressbar/master/screenshot.png)
+![Screenshot of progress bar](https://raw.githubusercontent.com/abdennour/react-progressbar/master/screenshot.png)
 
-Demo: http://paramaggarwal.github.io/react-progressbar/
+Demo: http://abdennour.github.io/react-progressbar/
 
 Usage
 =====
@@ -19,7 +19,7 @@ Simply `require('react-progressbar')` and pass in `completed` property as a numb
 
 You may additionally pass in a CSS color string for the `color` property.
 
-```jsx
+```js
 
 var Progress = require('react-progressbar');
 
@@ -34,10 +34,7 @@ var component = React.createClass({
 });
 ```
 
-Author
-======
 
-Param Aggarwal (paramaggarwal@gmail.com)
 
 License
 =======
