@@ -35,6 +35,24 @@ var component = React.createClass({
 });
 ```
 
+it was "babelified" also , thus, the following syntax is supported :
+
+```js
+
+import Progress from 'react-progressbar';
+
+class OtherComponent extends React.Component {
+  render () {
+    return (
+      <div>
+        <Progress completed={75} />
+      </div>
+    )
+  }
+}
+```
+
+
 
 
 License
