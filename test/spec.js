@@ -30,6 +30,10 @@ const getRanges = function() {
 };
 
 describe(`Progress`, () => {
+
+  it(`wraps errors`, () => {
+    expect(Progress.throwError('')).toBeAn(Error);
+  });
   it(`renders two nested DIV`, () => {
     const wrapper = mount( <Progress /> );
     expect(wrapper.find('div').length).toEqual(2);
@@ -47,12 +51,25 @@ describe(`Progress`, () => {
       const wrapper = mount( <Progress /> );
       expect(wrapper.prop('completed')).toEqual(0);
     });
+    it(`does not accept completeness not a number`, () => {
+      const spy = sinon.stub(Progress, 'throwError').returns(false),
+      anyThingNotNumber = ['100', '54', [43], new Object(), {something:'3'}, new Date()];
+      anyThingNotNumber.forEach(
+        (value) => <Progress completed = {value} />
+      );
+      expect(spy.callCount).toEqual(anyThingNotNumber.length);
+      spy.restore();
+    });
+    it(`does not accept completeness ∉ [0,100]`, () => {
+      const spy = sinon.stub(Progress, 'throwError').returns(false);
+      const rangesOutOf_0_100 = getRanges({from: 101, to: 250}, {from: -1, to: -100});
 
-    it(`restrict completeness to  ∈ [0,100]`, () => {
-      let wrapper = mount( <Progress completed={300} />);
-      expect(wrapper.instance().completed).toEqual(100);
-      wrapper = mount( <Progress completed={-10} />);
-      expect(wrapper.instance().completed).toEqual(0);
+      rangesOutOf_0_100.forEach(
+        (value) => <Progress completed = {value} />
+      );
+
+      expect(spy.callCount).toEqual(rangesOutOf_0_100.length);
+      spy.restore();
     });
 
     it(`reflects completeness on the width of UI`, () => {
