@@ -48,16 +48,11 @@ describe(`Progress`, () => {
       expect(wrapper.prop('completed')).toEqual(0);
     });
 
-    it(`does not accept completeness ∉ [0,100]`, () => {
-      const spy = sinon.stub(console, 'error').returns(false);
-      const rangesOutOf_0_100 = getRanges({from: 101, to: 250}, {from: -1, to: -100});
-
-      rangesOutOf_0_100.forEach(
-        (value) => <Progress completed = {value} />
-      );
-
-      expect(spy.callCount).toEqual(rangesOutOf_0_100.length);
-      spy.restore();
+    it(`restrict completeness to  ∈ [0,100]`, () => {
+      let wrapper = mount( <Progress completed={300} />);
+      expect(wrapper.instance().completed).toEqual(100);
+      wrapper = mount( <Progress completed={-10} />);
+      expect(wrapper.instance().completed).toEqual(0);
     });
 
     it(`reflects completeness on the width of UI`, () => {

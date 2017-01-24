@@ -1,9 +1,7 @@
 import React from 'react';
 
 const PropTypes = {
-  completed: React.PropTypes.oneOf(Array.from({
-    length: 101
-  }, (v, k) => k )),
+  completed: React.PropTypes.number,
   color: React.PropTypes.string,
   height: React.PropTypes.oneOfType([
     React.PropTypes.string,
@@ -19,11 +17,17 @@ const defaultProps = {
 
 class Progress extends React.Component {
 
+  get completed() {
+    if (this.props.completed < 0) return 0 ;
+    if (this.props.completed > 100) return 100 ;
+    return this.props.completed;
+  }
+
   render () {
-    const {color, completed, height, children, ...rest} = this.props;
+    const {color, height, children, ...rest} = this.props;
     const style = {
       backgroundColor: color,
-      width: completed + '%',
+      width: this.completed + '%',
       transition: "width 200ms",
       height: height
     };
