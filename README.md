@@ -12,8 +12,8 @@ Basic progress bar in React.js.
 
 Demo: http://abdennour.github.io/react-progressbar/
 
-Usage
-=====
+# Usage
+
 
 
 Simply `require('react-progressbar')` and pass in `completed` property as a number between 0 and 100.
@@ -54,8 +54,8 @@ class OtherComponent extends React.Component {
 
 
 
+# Donation
 
-License
-=======
+If this project help you reduce time to develop, you can give me a cup of coffee 🍵 :)
 
-MIT
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.me/AbdennourT/1)
