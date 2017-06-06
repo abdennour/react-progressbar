@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const PropTypes = {
+const propTypes = {
   completed: ((props, propName) => {
     if (typeof props[propName] !== 'number')
       return Progress.throwError('Invalid Props: "completed" should ∈ ℝ ');
@@ -8,11 +9,11 @@ const PropTypes = {
       return Progress.throwError('Invalid Props: "completed" should be between 0 and 100' );
     }
   }),
-  color: React.PropTypes.string,
-  animation: React.PropTypes.number,
-  height: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number
+  color: PropTypes.string,
+  animation: PropTypes.number,
+  height: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
   ])
 };
 
@@ -42,7 +43,7 @@ class Progress extends React.Component {
   }
 };
 
-Progress.propTypes = PropTypes;
+Progress.propTypes = propTypes;
 Progress.throwError = function() {
   return new Error(...arguments);
 };
