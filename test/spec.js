@@ -77,5 +77,17 @@ describe(`Progress`, () => {
         );
       });
     });
+    it(`adjusts completeness after being mounted`, () => {
+      const sampleId = `#progressbar-changing`;
+      const waitForSample = createWaitForElement(sampleId);
+      const wrapper = mount(<Progress completed={25} />);
+      waitForSample(wrapper, DEFAULT_ANIMATION).then(component =>
+        expect(component.find('.progressbar-progress').get(0).style.width).toEqual(`25%`)
+      );
+      wrapper.setProps({ completed: 75 });
+      waitForSample(wrapper, DEFAULT_ANIMATION).then(component =>
+        expect(component.find('.progressbar-progress').get(0).style.width).toEqual(`75%`)
+      );
+    });
   });
 });
