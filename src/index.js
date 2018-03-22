@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Progress extends React.Component {
+  state = {
+    completed: 0, // Animation should always start from 0
+  };
+
   static propTypes = {
     completed: (props, propName) => {
       if (typeof props[propName] !== 'number')
@@ -26,8 +30,23 @@ class Progress extends React.Component {
     return new Error(...arguments);
   }
 
+  componentDidMount() {
+    this.updateCompletedDelayed(this.props.completed, this.props.animation);
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.completed !== this.state.completed) {
+      this.updateCompletedDelayed(props.completed, props.animation);
+    }
+  }
+
+  updateCompletedDelayed(completed, animationDelay) {
+    setTimeout(() => this.setState({completed}), animationDelay);
+  }
+
   render() {
-    const {color, completed, animation, height, className, children, ...rest} = this.props;
+    const {color, animation, height, completed: _, className, children, ...rest} = this.props;
+    const {completed} = this.state;
     const style = {
       backgroundColor: color,
       width: completed + '%',

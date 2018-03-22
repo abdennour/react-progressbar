@@ -1,10 +1,13 @@
 import 'jsdom-global/register';
 import React from 'react';
-import {mount, shallow} from 'enzyme';
+import {mount, render, shallow} from 'enzyme';
+import {createWaitForElement} from 'enzyme-wait';
 import expect from 'expect';
 import sinon from 'sinon';
 
 import Progress from '../src';
+
+const DEFAULT_ANIMATION = 200;
 
 const rgb2hex = rgb => {
   if (rgb.search('rgb') === -1) return rgb;
@@ -20,7 +23,7 @@ const getRange = (from, to) => {
   if (from > to) return getRange(to, from);
   return Array.from({length: to - from + 1}, (v, k) => k + from);
 };
-const getRanges = function() {
+const getRanges = function () {
   return Array.from(arguments)
     .map(({from, to}) => getRange(from, to))
     .reduce((a, b) => [...a, ...b], []);
@@ -65,11 +68,13 @@ describe(`Progress`, () => {
     });
 
     it(`reflects completeness on the width of UI`, () => {
-      const anyPercentage = 50;
-      let wrapper;
       getRange(0, 100).forEach(value => {
-        wrapper = mount(<Progress completed={value} />);
-        expect(wrapper.find('.progressbar-progress').get(0).style.width).toEqual(value + '%');
+        const sampleId = `#progressbar-${value}`;
+        const waitForSample = createWaitForElement(sampleId);
+        const wrapper = mount(<Progress completed={value} />);
+        waitForSample(wrapper, DEFAULT_ANIMATION).then(component =>
+          expect(component.find('.progressbar-progress').get(0).style.width).toEqual(`${value}%`)
+        );
       });
     });
   });

@@ -23,6 +23,7 @@
     "babel-preset-stage-1": "^6.16.0",
     "coveralls": "^2.11.15",
     "enzyme": "^2.9.1",
+    "enzyme-wait": "^1.0.9",
     "expect": "^1.20.2",
     "jsdom": "^9.8.3",
     "jsdom-global": "^2.1.0",
