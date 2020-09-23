@@ -84,7 +84,7 @@ describe(`Progress`, () => {
       waitForSample(wrapper, DEFAULT_ANIMATION).then(component =>
         expect(component.find('.progressbar-progress').get(0).style.width).toEqual(`25%`)
       );
-      wrapper.setProps({ completed: 75 });
+      wrapper.setProps({completed: 75});
       waitForSample(wrapper, DEFAULT_ANIMATION).then(component =>
         expect(component.find('.progressbar-progress').get(0).style.width).toEqual(`75%`)
       );

@@ -8,12 +8,9 @@
     "build-demo": "parcel build demo-src/index.html -d demo/ --public-url ./",
     "prepublish": "npm run build",
     "format": "node_modules/.bin/prettier --write \"{src,test}/**/*.js\"",
-    "test":
-      "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- test/*.js",
-    "coverage":
-      "istanbul cover _mocha -- --ui bdd -R spec -t 5000;open ./coverage/lcov-report/index.html",
-    "cover":
-      "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha",
+    "test": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha -- test/*.js",
+    "coverage": "istanbul cover _mocha -- --ui bdd -R spec -t 5000;open ./coverage/lcov-report/index.html",
+    "cover": "node_modules/.bin/babel-node node_modules/.bin/babel-istanbul cover node_modules/.bin/_mocha",
     "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
@@ -34,7 +31,7 @@
     "mocha": "^3.2.0",
     "mocha-lcov-reporter": "^1.2.0",
     "parcel-bundler": "^1.6.2",
-    "prettier": "^1.11.1",
+    "prettier": "^2.1.2",
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^15.0.0",
@@ -42,9 +39,17 @@
     "sinon": "^1.17.6"
   },
   "babel": {
-    "presets": ["es2015", "react"]
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
-  "keywords": ["react-component", "react", "progress", "bar"],
+  "keywords": [
+    "react-component",
+    "react",
+    "progress",
+    "bar"
+  ],
   "browserify": {
     "transform": [
       [
